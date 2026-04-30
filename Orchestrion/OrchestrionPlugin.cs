@@ -93,12 +93,12 @@ public class OrchestrionPlugin : IDalamudPlugin, IDisposable
 					.Concat(Enumerable.Range(1, 127).Select(x => (char)x))
 					.ToGlyphRange(),
 			};
-			tk.Font = tk.AddDalamudAssetFont(DalamudAsset.NotoSansJpMedium, config);
+			tk.Font = tk.AddDalamudAssetFont(DalamudAsset.NotoSansCjkMedium, config);
 		}));
 		if (CnFont.LoadException != null)
 		{
 			DalamudApi.PluginLog.Debug(CnFont.LoadException.Message);	
-			DalamudApi.PluginLog.Debug(CnFont.LoadException.StackTrace);	
+			DalamudApi.PluginLog.Debug(CnFont.LoadException?.StackTrace ?? "<no stacktrace>");	
 		}
 		
 		LargeFont = atlas.NewGameFontHandle(new GameFontStyle(GameFontFamily.Axis, 24));
